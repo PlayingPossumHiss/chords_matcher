@@ -169,9 +169,9 @@ func NewChordsChangeChainFromChords(chords []Chord) ChordsChangeChain {
 
 // NewChordChange создает переход двух аккордов
 func NewChordChange(chord1 Chord, chord2 Chord) ChordChange {
-	// Получим разницу тонов
+	// Получим разницу тонов (от -5 до 6)
 	change := chord2.level() - chord1.level()
-	if change < -6 {
+	if change <= -6 {
 		change += 12
 	}
 	if change > 6 {
